@@ -1,0 +1,24 @@
+{
+  "lat": "19.42847N",
+  "lon": "99.12766W",
+  "elevation": 2240,
+  "timezone": "America/Mexico_City",
+  "units": "metric",
+  "current": {
+    "icon": "clear",
+    "icon_num": 26,
+    "summary": "Clear",
+    "temperature": 8.0,
+    "feels_like": 8.5,
+    "wind_chill": 9.5,
+    "dew_point": -2.8,
+    "wind": { "speed": 1.0, "gusts": 2.4, "angle": 348, "dir": "NNW" },
+    "precipitation": { "total": 0.0, "type": "none" },
+    "cloud_cover": 2,
+    "ozone": 261.83,
+    "pressure": 1019,
+    "uv_index": 0.0,
+    "humidity": 46,
+    "visibility": 24.14
+  }
+}
