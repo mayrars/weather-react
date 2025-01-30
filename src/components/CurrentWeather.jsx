@@ -1,5 +1,6 @@
 import '../styles/components/CurrentWeather.scss'
 import { getCurrentWeather } from '../api';
+import WeatherIcon from './WeatherIcon';
 const CurrentWeather = () => {
   const data = getCurrentWeather();
   const {
@@ -54,7 +55,7 @@ const CurrentWeather = () => {
     <div className='CurrentWeather'>
       <div className='temperature'>
         <div className="weather-icon">
-          <img src={`${import.meta.env.VITE_PUBLIC_URL}/dist/set02/big/${icon_num}.png`} alt={summary} />
+          <WeatherIcon iconNumber={icon_num} alt={summary}/>
         </div>
         <div className='value'>
           <div className="real">{temperature} °C</div>
