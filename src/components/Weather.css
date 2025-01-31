@@ -40,8 +40,17 @@
 
 .temperature{
     color:white;
-    font-size: 80px;
+    font-size: 32px;
     line-height: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temperature span{
+    font-size: 20px;
+    margin-top: 10px
 }
 
 .location{
@@ -70,4 +79,8 @@
 .weather-data .col img{
     width: 26px;
     margin-top: 10px;
+}
+
+.feels_like{
+    font-size: 28px;
 }
