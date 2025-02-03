@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import '../styles/components/Settings.scss'
-import ThemeContext from '../context/theme-context'
+import ThemeContext from '../context/theme.context'
 const Settings = () => {
   const {dark, setDark, saveThemeLocalStorage} = useContext(ThemeContext)
 
