@@ -1,8 +1,6 @@
-import '../styles/components/CurrentWeather.scss'
-import { getCurrentWeather } from '../api';
 import WeatherIcon from './WeatherIcon';
-const CurrentWeather = () => {
-  const data = getCurrentWeather();
+import '../styles/components/CurrentWeather.scss'
+const CurrentWeather = ({data}) => {
   const {
     cloud_cover, feels_like, humidity, icon_num, precipitation, summary, temperature, uv_index, visibility, wind
   }= data
