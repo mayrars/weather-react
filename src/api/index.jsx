@@ -1,21 +1,24 @@
-import currentWeather from './current-weather.json'
-import dailyForecast from './daily-forecast.json'
-import hourlyForecast from './hourly-forecast.json'
+import axios from 'axios';
+export async function getWeatherData(endpoint, place_id,measurementSystem) {
 
-function getCurrentWeather() {
-    return currentWeather.current
-}
+    const options = {
+    method: 'GET',
+    url: `https://ai-weather-by-meteosource.p.rapidapi.com/${endpoint}`,
+    params: {
+        place_id,
+        language: 'en',
+        units: measurementSystem
+    },
+    headers: {
+        'x-rapidapi-key': '5429963261msh2a15d87840d5f5bp1468d2jsn265821d0744d',
+        'x-rapidapi-host': 'ai-weather-by-meteosource.p.rapidapi.com'
+    }
+    };
 
-function getDailyForecast(){
-    return dailyForecast.daily.data
-}
-
-function getHourlyForecast(){
-    return hourlyForecast.hourly.data
-}
-
-export {
-    getCurrentWeather,
-    getDailyForecast,
-    getHourlyForecast
+    try {
+        const response = await axios.request(options);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
 }
