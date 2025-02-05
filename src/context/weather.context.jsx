@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { DEFAULT_PLACE, MEASURAMENT_SYSTEMS } from '../constants';
+import { DEFAULT_PLACE, MEASURAMENT_SYSTEMS, UNITS } from '../constants';
 import { getWeatherData } from '../api';
 
 const WeatherContext = createContext();
@@ -12,21 +12,47 @@ function WeatherProvider({children}) {
     const [dailyForecast, setDailyForecast] =useState([])
     const [measuramentSystem, setMeasuramentSystem] = useState(MEASURAMENT_SYSTEMS.AUTO)
 
+    const [units, setUnits] = useState({})
+
     useEffect(() =>{
         async function _getWeatherData() {
             setLoading(true);
-            const cw = await getWeatherData("current", place.place_id, 'auto');
+            const cw = await getWeatherData(
+                'current',
+                place.place_id,
+                measuramentSystem
+            );
+            console.log(cw);
             setCurrentWeather(cw.current);
-            const hf = await getWeatherData("hourly", place.place_id, 'auto');
+            setUnits(UNITS[cw.units]);
+            const hf = await getWeatherData(
+                'hourly',
+                place.place_id,
+                measuramentSystem
+            );
             sethHourlyForecast(hf.hourly.data);
-            const df = await getWeatherData("daily", place.place_id, 'auto');
+            const df = await getWeatherData(
+                'daily',
+                place.place_id,
+                measuramentSystem
+            );
             setDailyForecast(df.daily.data);
             setLoading(false);
         }
         _getWeatherData()
-    },[place])
+    },[place, measuramentSystem])
     return (
-        <WeatherContext.Provider value={{place, loading, currentWeather, hourlyForecast, dailyForecast, measuramentSystem, setMeasuramentSystem}}>
+        <WeatherContext.Provider 
+            value={{
+                place, 
+                loading, 
+                currentWeather, 
+                hourlyForecast, 
+                dailyForecast, 
+                measuramentSystem, 
+                setMeasuramentSystem,
+                units,    
+            }}>
             {children}
         </WeatherContext.Provider>
     );
