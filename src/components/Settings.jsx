@@ -31,12 +31,12 @@ const Settings = () => {
         </div>
       </div>
       <div className="settings-btn" onClick={() => setOpenSettings((prevVal) => !prevVal)}>
-        <i className={`bi bi-gear-fill ${openSettings ? '-fill' : ''}`}></i>
+        <i className={`bi bi-gear${openSettings ? '-fill' : ''}`}></i>
       </div>
       <div className={`settings-menu ${openSettings ? 'open' : ''}`}>
-        <div className="mesurement-systems">
+        <div className="measurement-systems">
           <h4>Measurament Systems:</h4>
-          <div className="syste">
+          <div className="systems">
             {Object.values(MEASURAMENT_SYSTEMS).map((system)=>(
               <div key={system} className={`system ${system===measuramentSystem ? 'active' : ''}`} onClick={()=>changeMeasuramentSystem(system)}>
                 {system}
