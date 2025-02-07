@@ -10,7 +10,7 @@ export async function getWeatherData(endpoint, place_id,measurementSystem) {
         units: measurementSystem
     },
     headers: {
-        'x-rapidapi-key': '5429963261msh2a15d87840d5f5bp1468d2jsn265821d0744d',
+        'x-rapidapi-key': import.meta.env.VITE_API_KEY,
         'x-rapidapi-host': 'ai-weather-by-meteosource.p.rapidapi.com'
     }
     };
